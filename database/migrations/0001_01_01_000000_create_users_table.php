@@ -15,8 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
+            $table->enum('role', ['merchant', 'customer'])->default('user');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->decimal('wallet', 10, 2)->default(0);
             $table->rememberToken();
             $table->timestamps();
         });
